@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Dice from './Dice';
 import DiceContainer from './DiceContainer';
 function App() {
   

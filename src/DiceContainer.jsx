@@ -8,7 +8,7 @@ class DiceContainer extends Component {
         super(props);
         this.state = {
             dice1: 'one',
-            dice2: 'two',
+            dice2: 'one',
             rolling: false
         }
         this.handleClick = this.handleClick.bind(this);
@@ -19,7 +19,6 @@ class DiceContainer extends Component {
     }
 
     handleClick() {
-        console.log(this.getRandomDice())
         this.setState({
             dice1: this.getRandomDice(),
             dice2: this.getRandomDice(),
@@ -30,17 +29,17 @@ class DiceContainer extends Component {
             this.setState({
                 rolling: false
             })
-        }, 2000);
+        }, 1000);
     }
 
     render() { 
         return ( 
             <div>
                 <div className="container">
-                    <Dice name={this.state.dice1} />
-                    <Dice name={this.state.dice2} />
+                    <Dice name={this.state.dice1} rolling={this.state.rolling} />
+                    <Dice name={this.state.dice2} rolling={this.state.rolling} />
                 </div>
-                <button onClick={this.handleClick}>{this.state.rolling ? 'Rolling...' : 'Roll Dices!!!'}</button>
+                <button disabled={this.state.rolling} onClick={this.handleClick}>{this.state.rolling ? 'Rolling...' : 'Roll Dices!!!'}</button>
             </div>
          );
     }

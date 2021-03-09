@@ -1,8 +1,9 @@
 import React from 'react'
 
-const Dice = (props) => {    
+const Dice = (props) => {  
+      
     return ( 
-        <i className={`Dice fas fa-dice-${props.name}`}></i>
+        <i className={`Dice ${props.rolling ? 'rolling' : ''} fas fa-dice-${props.name}`}></i>
      );
 }
  
